@@ -26,22 +26,52 @@ const initialFriends = [
 ];
 
 export default function App() {
+  // const [friends, setFriends] = useState(initialFriends);
+  // const [showAddFriend, setShowAddFriend] = useState(false);
+  // const [selectedFriend, setSelectedFriend] = useState(null);
+  // function handleShowAddFriend() {
+  //   setShowAddFriend((show) => !show);
+  //   setSelectedFriend(null);
+  // }
+
+  // function handleAddFriend(friend) {
+  //   setFriends((friends) => [...friends, friend]);
+  //   setShowAddFriend(false);
+  // }
+
+  // function handleSelectedFriend(friend) {
+  //   setSelectedFriend((currentSelected) =>
+  //     currentSelected?.id === friend.id ? null : friend
+  //   );
+  //   setShowAddFriend(false);
+  // }
+
+  // function handleSplitBill(value) {
+  //   setFriends((friends) =>
+  //     friends.map((friend) =>
+  //       friend.id === selectedFriend.id
+  //         ? { ...friend, balance: friend.balance + value }
+  //         : friend
+  //     )
+  //   );
+  //   setSelectedFriend(null);
+  // }
+
   const [friends, setFriends] = useState(initialFriends);
   const [showAddFriend, setShowAddFriend] = useState(false);
   const [selectedFriend, setSelectedFriend] = useState(null);
-  function handleShowAddFriend() {
-    setShowAddFriend((show) => !show);
-    setSelectedFriend(null);
-  }
 
   function handleAddFriend(friend) {
     setFriends((friends) => [...friends, friend]);
     setShowAddFriend(false);
   }
-
+  function handleShowAddFriend() {
+    setShowAddFriend((show) => !show);
+    setSelectedFriend(null);
+  }
   function handleSelectedFriend(friend) {
-    setSelectedFriend((currentSelected) =>
-      currentSelected?.id === friend.id ? null : friend
+    setSelectedFriend((currentFriend) =>
+      currentFriend?.id === friend?.id ? null : friend
     );
     setShowAddFriend(false);
   }
@@ -49,7 +79,7 @@ export default function App() {
   function handleSplitBill(value) {
     setFriends((friends) =>
       friends.map((friend) =>
-        friend.id === selectedFriend.id
+        friend?.id === selectedFriend?.id
           ? { ...friend, balance: friend.balance + value }
           : friend
       )

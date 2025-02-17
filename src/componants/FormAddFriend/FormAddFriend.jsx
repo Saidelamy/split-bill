@@ -7,16 +7,15 @@ export default function FormAddFriend({ handleAddFriend }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!name || !image) return;
+    if (!image && !name) return;
     const id = crypto.randomUUID();
-    const newFriend = {
+    const uewFriend = {
       id,
       name,
       image: `${image}?=${id}`,
       balance: 0,
     };
-    handleAddFriend(newFriend);
-    setName("");
+    handleAddFriend(uewFriend);
   }
   return (
     <>
